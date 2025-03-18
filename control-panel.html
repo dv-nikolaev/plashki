@@ -333,6 +333,87 @@
                     <button onclick="clearRole()">Сбросить</button>
                 </td>
             </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <button id="setPlayers">Set players</button>
+                    <dialog id="playersDialog">
+                        <form class="options" method="dialog">
+                        <table>
+                            <tr>
+                                <td>1</td>
+                                <td>
+                                    <input type="text" id="p1">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>
+                                    <input type="text" id="p2">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>
+                                    <input type="text" id="p3">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>
+                                    <input type="text" id="p4">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>
+                                    <input type="text" id="p5">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>
+                                    <input type="text" id="p6">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td>
+                                    <input type="text" id="p7">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td>
+                                    <input type="text" id="p8">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td>
+                                    <input type="text" id="p9">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>10</td>
+                                <td>
+                                    <input type="text" id="p10">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Количество игр</td>
+                                <td>
+                                    <input type="text" id="gamesCount">
+                                </td>
+                            </tr>
+                            <tr>
+                                <button id="savePlayers">Сохранить</button>
+                            </tr>
+                        </table>
+                    </form>
+                    </dialog>
+                </td>
+            </tr>
         </table>
     </div>
     <footer>
@@ -340,28 +421,76 @@
     </footer>
     <script>
         jsonPosition = JSON.parse('{"player_list": [{"game_number": 1, "player_1": "Паровоз", "player_2": "Йорш", "player_3": "Leo", "player_4": "Хромакей", "player_5": "FreeLSD", "player_6": "Воин", "player_7": "Инструктор н.п", "player_8": "Бакс", "player_9": "Норман", "player_10": "Фederal"}, {"game_number": 2, "player_1": "Йорш", "player_2": "Паровоз", "player_3": "Leo", "player_4": "Хромакей", "player_5": "FreeLSD", "player_6": "Воин", "player_7": "Инструктор н.п", "player_8": "Бакс", "player_9": "Норман", "player_10": "Фederal"}, {"game_number": 3, "player_1": "Хромакей", "player_2": "Йорш", "player_3": "Паровоз", "player_4": "Leo", "player_5": "FreeLSD", "player_6": "Воин", "player_7": "Инструктор н.п", "player_8": "Бакс", "player_9": "Норман", "player_10": "Фederal"}, {"game_number": 4, "player_1": "Фederal", "player_2": "Воин", "player_3": "Йорш", "player_4": "Паровоз", "player_5": "Leo", "player_6": "Хромакей", "player_7": "FreeLSD", "player_8": "Инструктор н.п", "player_9": "Бакс", "player_10": "Норман"}, {"game_number": 5, "player_1": "Фederal", "player_2": "Норман", "player_3": "Бакс", "player_4": "Йорш", "player_5": "Паровоз", "player_6": "Leo", "player_7": "Хромакей", "player_8": "FreeLSD", "player_9": "Воин", "player_10": "Инструктор н.п"}, {"game_number": 6, "player_1": "Фederal", "player_2": "Норман", "player_3": "Бакс", "player_4": "Инструктор н.п", "player_5": "Йорш", "player_6": "Паровоз", "player_7": "Leo", "player_8": "Хромакей", "player_9": "FreeLSD", "player_10": "Воин"}, {"game_number": 7, "player_1": "Фederal", "player_2": "Норман", "player_3": "Бакс", "player_4": "Инструктор н.п", "player_5": "Воин", "player_6": "Йорш", "player_7": "Паровоз", "player_8": "Leo", "player_9": "Хромакей", "player_10": "FreeLSD"}, {"game_number": 8, "player_1": "Фederal", "player_2": "Фederal", "player_3": "Норман", "player_4": "Бакс", "player_5": "Инструктор н.п", "player_6": "FreeLSD", "player_7": "Йорш", "player_8": "Паровоз", "player_9": "Leo", "player_10": "Хромакей"}, {"game_number": 9, "player_1": "Фederal", "player_2": "Норман", "player_3": "Бакс", "player_4": "Инструктор н.п", "player_5": "Воин", "player_6": "FreeLSD", "player_7": "Хромакей", "player_8": "Йорш", "player_9": "Паровоз", "player_10": "Leo"}, {"game_number": 10, "player_1": "Инструктор н.п", "player_2": "Фederal", "player_3": "Норман", "player_4": "Бакс", "player_5": "Воин", "player_6": "FreeLSD", "player_7": "Хромакей", "player_8": "Leo", "player_9": "Йорш", "player_10": "Паровоз"}, {"game_number": 11, "player_1": "Паровоз", "player_2": "Йорш", "player_3": "Leo", "player_4": "Хромакей", "player_5": "FreeLSD", "player_6": "Воин", "player_7": "Инструктор н.п", "player_8": "Бакс", "player_9": "Норман", "player_10": "Фederal"}, {"game_number": 12, "player_1": "Йорш", "player_2": "Паровоз", "player_3": "Leo", "player_4": "Хромакей", "player_5": "FreeLSD", "player_6": "Воин", "player_7": "Инструктор н.п", "player_8": "Бакс", "player_9": "Норман", "player_10": "Фederal"}, {"game_number": 13, "player_1": "Хромакей", "player_2": "Йорш", "player_3": "Паровоз", "player_4": "Leo", "player_5": "FreeLSD", "player_6": "Воин", "player_7": "Инструктор н.п", "player_8": "Бакс", "player_9": "Норман", "player_10": "Фederal"}, {"game_number": 14, "player_1": "Фederal", "player_2": "Воин", "player_3": "Йорш", "player_4": "Паровоз", "player_5": "Leo", "player_6": "Хромакей", "player_7": "FreeLSD", "player_8": "Инструктор н.п", "player_9": "Бакс", "player_10": "Норман"}, {"game_number": 15, "player_1": "Фederal", "player_2": "Норман", "player_3": "Бакс", "player_4": "Йорш", "player_5": "Паровоз", "player_6": "Leo", "player_7": "Хромакей", "player_8": "FreeLSD", "player_9": "Воин", "player_10": "Инструктор н.п"}, {"game_number": 16, "player_1": "Фederal", "player_2": "Норман", "player_3": "Бакс", "player_4": "Инструктор н.п", "player_5": "Йорш", "player_6": "Паровоз", "player_7": "Leo", "player_8": "Хромакей", "player_9": "FreeLSD", "player_10": "Воин"}, {"game_number": 17, "player_1": "Фederal", "player_2": "Норман", "player_3": "Бакс", "player_4": "Инструктор н.п", "player_5": "Воин", "player_6": "Йорш", "player_7": "Паровоз", "player_8": "Leo", "player_9": "Хромакей", "player_10": "FreeLSD"}, {"game_number": 18, "player_1": "Фederal", "player_2": "Фederal", "player_3": "Норман", "player_4": "Бакс", "player_5": "Инструктор н.п", "player_6": "FreeLSD", "player_7": "Йорш", "player_8": "Паровоз", "player_9": "Leo", "player_10": "Хромакей"}, {"game_number": 19, "player_1": "Фederal", "player_2": "Норман", "player_3": "Бакс", "player_4": "Инструктор н.п", "player_5": "Воин", "player_6": "FreeLSD", "player_7": "Хромакей", "player_8": "Йорш", "player_9": "Паровоз", "player_10": "Leo"}, {"game_number": 20, "player_1": "Инструктор н.п", "player_2": "Фederal", "player_3": "Норман", "player_4": "Бакс", "player_5": "Воин", "player_6": "FreeLSD", "player_7": "Хромакей", "player_8": "Leo", "player_9": "Йорш", "player_10": "Паровоз"}]}');
+        /*data1 = "Инструктор н.п|Stronger|Бакс|Космонавт|Богиня|Воин|Тигрёнок|Сфинкс|Грозный|Mess|Фибико|Честер|Мята|Nikas|Димас|Айрис|Сив|Муть|Снайи|Паровоз|Leo|FreeLSD|Йорш|Троянда|Норман|Булыжник|Double_Pink|Polar_Phoxic|Асмодея|Хромакей|Цунами|Марфа В.|Лотсо|Интроверт|Провокация|Артемида|404|";*/
+        
 
-        data1 = "Инструктор н.п|Stronger|Бакс|Космонавт|Богиня|Воин|Тигрёнок|Сфинкс|Грозный|Mess|Фибико|Честер|Мята|Nikas|Димас|Айрис|Сив|Муть|Снайи|Паровоз|Leo|FreeLSD|Йорш|Троянда|Норман|Булыжник|Double_Pink|Polar_Phoxic|Асмодея|Хромакей|Цунами|Марфа В.|Лотсо|Интроверт|Провокация|Артемида|404|";
-        player_list = data1.split('|');
-
+        const pl_dialog_btn = document.getElementById("setPlayers")
+        const set_players = document.getElementById("savePlayers");
+        const pl_dialog = document.getElementById("playersDialog");
+        const game_number = document.getElementById("game_number");
         const ps = new BroadcastChannel('panel_status');
         const pl = new BroadcastChannel('player_list');
         const cl = new BroadcastChannel('class_list');
 
-        $(document).ready(function() {
+        pl_dialog_btn.addEventListener("click", () =>{
+            pl_dialog.showModal();
+        });
+
+        pl_dialog.addEventListener("close", (e) => {
+            const fields = ['p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'p7', 'p8', 'p9', 'p10'];
+            let data1 = ''
+
+            document.querySelectorAll('.player-list').forEach((element, index, array) => {
+                element.length = 0;
+            });
+            // jsonPosition.player_list.forEach(element => {
+
+            //     $('#game_number').defaultSelected;
+            // })
+
+            fields.forEach((fieldId, index) => {
+                const value = document.getElementById(fieldId).value;
+                data1 += value;
+
+                if (index < fields.length - 1) {
+                    data1 += '|';
+                }
+            });
+            player_list = data1.split('|');
+            // saveValuesToCookie(player_list);
+        
+
+        // $(document).ready(function() {
+            
             document.querySelectorAll('.player-list').forEach((element, index, array) => {
                 player_list.forEach(player => {
                     element.add(new Option(player));
                 });
             });
+            const games_count = document.getElementById("gamesCount");
+            const gamesCount = parseInt(games_count.value)
+            console.log(gamesCount)
+            game_number.length = 0;
+            for (let i = 1; i <= gamesCount; i++) {
+                game_number.add(new Option(i));
+            }
 
-            jsonPosition.player_list.forEach(element => {
+            // jsonPosition.player_list.forEach(element => {
 
-                $('#game_number').append(new Option(element.game_number));
-            })
+            //     $('#game_number').append(new Option(element.game_number));
+            // })
 
             changePlayers(1, false);
         });
+
+    // function saveValuesToCookie(values) {
+    //     document.cookie = `player_list=${player_list}; path=/`;
+    // }
+
+    // function loadValuesFromCookie() {
+    //     const cookie = document.cookie;
+    //     const player_list = cookie.split('=')[1];
+    // }
 
         function changePlayers(game_number, send_data) {
             jsonPosition.player_list.forEach(element => {
@@ -382,6 +511,9 @@
                     }
                 }
             })
+            // if (send_data == true) {
+            //             sendAllData();
+            //         }
         }
 
         function changeStatus(object, status) {
