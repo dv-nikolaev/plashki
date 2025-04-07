@@ -607,12 +607,13 @@
             pl.postMessage(player);
         });
 
-        $('#game_number').on('change', function() {
-            game_number = $(this).find(":selected").val();
-            changePlayers(game_number, true);
-        });
+        // $('#game_number').on('change', function() {
+        //     game_number = $(this).find(":selected").val();
+        //     changePlayers(game_number, true);
+        // });
 
         function sendAllData() {
+            saveSelectedNames()
             document.querySelectorAll('.player').forEach((element, index, array) => {
                 item = element.querySelectorAll('.player-list')[0];
                 player = element.id + '|' + $(item[item.selectedIndex]).text();
@@ -620,6 +621,41 @@
                 pl.postMessage(player);
             });
         }
+
+        // Функция для сохранения выбранных имён в LocalStorage
+        function saveSelectedNames() {
+            const game = document.getElementById('game_number').value;
+            const selected = [];
+
+            const items = document.querySelectorAll('.player-list');
+            items.forEach((item, i) => {
+                selected.push(item.value);
+            });
+            // alert(selected)
+            // for (let i = 1; i <= 10; i++) {
+            //     const select = document.getElementById(`nameSelect${i}`);
+            //     selected.push(select.value);
+            // }
+
+            localStorage.setItem(game, JSON.stringify(selected));
+        }
+
+        // Функция для загрузки выбранных имён из LocalStorage
+        function loadSelectedNames() {
+            const game = document.getElementById('game_number').value;
+            const selected = JSON.parse(localStorage.getItem(game)) || [];
+
+            const items = document.querySelectorAll('.player-list');
+            items.forEach((item, i) => {
+                item.value = selected[i];
+            });
+        }
+
+        // Обработчик события изменения выбора игры
+        document.getElementById('game_number').addEventListener('change', () => {
+            // saveSelectedNames();
+            loadSelectedNames();
+        });
     </script>
 </body>
 
